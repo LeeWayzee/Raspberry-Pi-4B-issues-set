@@ -1,0 +1,31 @@
+#1
+对于树梅派摄像头配置问题,首先修改配置文件
+sudo nano /boot/config.txt
+将下面位置的设置修改
+camera_auto_detect=0  (默认为1)
+gpu-mem=128  (需要手动书写添加)
+start_x = 1  (需要手动书写添加)
+dtoverlay= ov5647 (手动添加摄像头型号)
+
+#2
+运行如下指令
+sudo nano /etc/modules
+末尾添加
+bcm2835-v4l2
+
+#3
+重启树梅派
+sudo rebbot
+
+#4
+输入指令测试摄像头
+libcamera-hello
+1.正常状况为运行状态，无报错。配置完成
+2.若出现import error port错误，需要使用如下指令
+libcamera-hello --qt-preview
+则可以正常运行
+
+#5
+时间设置
+-t 0表示持续工作不关闭摄像头
+

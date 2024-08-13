@@ -1,0 +1,11 @@
+问题：
+OLED屏 型号为SSD1306 在使用树梅派4B的时候无法正确配置相关的库
+
+解决：
+1.不要使用原来的第三方库 很容易出现问题 例如无法识别设备等
+  原来的第三方库 Adafruit-SSD1306
+
+2.下载现在使用的第三方库 Adafruit-circuitpython-ssd1306
+   指令行输入            pip3 install adafruit-circuitpython-ssd1306
+
+3.从官网阅读案例代码，在设备配置正确的情况下，案例文件可以运行

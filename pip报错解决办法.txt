@@ -1,0 +1,16 @@
+在最新的Ubuntu版本里
+树梅派终端里输入 pip install & pip3 install 
+会报错，并且引导你使用 sudo apt install python3-xyz
+的方法去下载python的第三方库
+引起此错误的原因在于在2024年发行的ubuntu系统下会有一些系统的
+包管理用法，这也直接导致了python的pip方法与ubuntu系统的不兼容
+而且一些包无法通过pipx & sudo apt install python3-xyz下载
+
+解决办法如下:
+直接忽略系统的包管理方式 强制安装目标包 指令末尾加上
+"--break-system-packages"
+
+pip install xyz --break-system-packages
+pip3 install xyz --break-system-packages
+
+

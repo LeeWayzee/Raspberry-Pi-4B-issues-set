@@ -1,0 +1,19 @@
+问题：使用 gpio -v 指令的时候，终端报错:command gpio not found
+
+原因：树梅派4自带的wiringpi库版本过低不兼容系统，原本默认为2.50
+
+解决办法：将wiringPi库升级到2.52版本及以上才可使用
+
+1.在终端依次输入如下指令：
+
+sudo apt-get update
+
+sudo apt-get install git-core
+
+git clone https://github.com/WiringPi/WiringPi.git
+
+cd WiringPi
+
+./build
+
+上述指令完成后，使用gpio readall 可以正常使用
