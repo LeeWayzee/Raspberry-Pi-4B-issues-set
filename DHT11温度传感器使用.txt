@@ -1,0 +1,25 @@
+对于2023年以后的树梅派4B DHT11 温湿度传感器 可能面临以前的python库无法使用
+那么也就采用了adafruit系列的传感器库
+adafruit-dht系列提供了 DHT11 & DHT22 两种传感器的使用
+
+首先对于2024年以后的树梅派版本 我们采用强制pip的操作将包下载下来
+sudo pip3 install adafruit-dht --break-system-packages
+
+
+使用方法:
+import adafruit_dht
+import board
+
+这里默认采用BCM模式编码 但是必须使用pin.id的形式传入
+否则会报错!!!
+pin_data = board.D21 (对应BCM编码下的pin_data = 21)
+
+创建一个实例
+dht11 = adafruit_dht.DHT11(pin_data)
+
+之后查看温度 与 湿度
+temprature = dht11.temprature
+humidity = dht11.humidity
+
+将温度与湿度打印出来就可以了
+prin(temprature,humidity)
